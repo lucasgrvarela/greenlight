@@ -6,6 +6,7 @@ import (
 	"flag"
 	"log/slog"
 	"os"
+	"strings"
 	"sync"
 	"time"
 
@@ -37,6 +38,9 @@ type config struct {
 		password string
 		sender   string
 	}
+	cors struct {
+		trustedOrigins []string
+	}
 }
 
 type application struct {
@@ -67,6 +71,11 @@ func main() {
 	flag.StringVar(&cfg.smtp.username, "smtp-username", "634de5580b91cf", "SMTP username") // fake credential from mailtrap.io already expired
 	flag.StringVar(&cfg.smtp.password, "smtp-password", "aa5c2a96536286", "SMTP password") // fake credential from mailtrap.io already expired
 	flag.StringVar(&cfg.smtp.sender, "smtp-sender", "Greenlight <no-reply@greenlight.example.net>", "SMTP sender")
+
+	flag.Func("cors-trusted-origins", "Trusted CORS origins (space separated)", func(val string) error {
+		cfg.cors.trustedOrigins = strings.Fields(val)
+		return nil
+	})
 
 	flag.Parse()
 
