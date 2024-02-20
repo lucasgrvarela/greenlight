@@ -47,8 +47,7 @@ $ curl -H "Authorization: Bearer 5XQIV2TIIDC5GCKF2XD5WDFW6I" localhost:4000/v1/m
 
 #### Permission: user with read-only can't delete
 ```
-$ curl -X DELETE -H "Authorization: Bearer 5XQIV2TIIDC5GCKF2XD5WDFW6I" local
-host:4000/v1/movies/2
+$ curl -X DELETE -H "Authorization: Bearer 5XQIV2TIIDC5GCKF2XD5WDFW6I" localhost:4000/v1/movies/2
 {
         "error": "your user account doesn't have the necessary permissions to access this resource"
 }
