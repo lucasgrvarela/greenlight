@@ -110,5 +110,5 @@ $ for i in {1..6}; do curl  http://localhost:4000/v1/healthcheck; done
 #### Users receive an email for confirmation/activation of the account
 ![email with token for user activation](email.png)
 
-#### Metrics endpoint with custom metrics like database and request count
+#### Metrics endpoint with custom metrics like database stats and request count
 ![metrics](metrics.png)
